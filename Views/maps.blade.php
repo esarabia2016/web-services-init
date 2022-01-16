@@ -11,7 +11,7 @@
 		</li>
 		<li><a href="#">El tiempo</a>
 		</li>
-		<li><a href="#">Catastro</a></li>
+		<li><a href="catform.php">Catastro</a></li>
 		<li><a href="#">Finanzas</a></li>
 	<ul>
 </div>
