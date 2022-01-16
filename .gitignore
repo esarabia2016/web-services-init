@@ -1,13 +1,3 @@
 /nbproject/private/
 /Cache
-/vendor/composer
-/vendor/eftec
-/vendor/firebase
-/vendor/google
-/vendor/guzzlehttp
-/vendor/monolog
-/vendor/paragonie
-/vendor/phpseclib
-/vendor/psr
-/vendor/ralouphie
-/vendor/symfony
+/vendor/
