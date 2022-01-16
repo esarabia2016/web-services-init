@@ -8,7 +8,9 @@
         <input type="text" id="password" name="password">
         <br><br>
         <input type="submit" name="Envio" id="Envio" value="Envio"><br>
+        <br>
         <input type="submit" name="Github" id="Github" value="Github"><br>
+        <br>
         <input type="submit" name="Google" id="Google" value="Google"><br>
     </form>
 </div>
