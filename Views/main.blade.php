@@ -5,8 +5,8 @@
 		<li><a href="#">Inicio</a>
 		<li><a href="#">Localización</a>
 			<ul>
-				<li><a href="#">Posición</a></li>
-				<li><a href="#">Mapas</a></li>
+				<li><a href="pos.php">Posición</a></li>
+				<li><a href="maps.php">Mapas</a></li>
 			</ul>
 		</li>
 		<li><a href="#">El tiempo</a>
