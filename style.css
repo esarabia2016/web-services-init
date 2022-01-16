@@ -1,0 +1,49 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.cabecera {
+	margin: auto;
+	width: 600px;
+	font-family: Verdana;
+	}
+	
+ul, ol {
+	list-style: none;
+}
+
+.menu li a {
+	background: #1abc9c;
+	color: #fff;
+	text-decoration: none;
+	padding: 10px 15px;
+	display: block;
+	}
+
+.menu > li {
+	float: left;
+	}
+	
+.menu li a:hover {
+	background: #ccc;
+	}
+	
+.menu li ul {
+	display: none;
+	position: absolute;
+	min-width: 140px;
+	}
+	
+.menu li:hover > ul {
+	display: block;
+	}
+	
+.menu li ul li {
+	position: relative;
+	}
+	
+.menu li ul li ul {
+	right: -140px;
+	top: 0px;
+	}
