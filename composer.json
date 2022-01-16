@@ -1,0 +1,19 @@
+{
+    "name": "emili/web-services-esarabia2016",
+    "type": "project",
+    "require": {
+        "eftec/bladeonehtml": "^2.2",
+        "google/apiclient": "^2.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "Emili\\WebServicesEsarabia2016\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "esarabia2016",
+            "email": "emilio.sarabia@educa.madrid.org"
+        }
+    ]
+}
