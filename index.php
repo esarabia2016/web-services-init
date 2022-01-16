@@ -49,20 +49,20 @@
         $Envio = filter_input(INPUT_POST,'Envio');
         if ($Envio == "Envio"){
                 $header = "Inicio de sesion email " . $email;
-                echo $blade-> run ('start',['header'=>$header,'email'=>$email]);
+                echo $blade-> run ('main',['header'=>$header,'email'=>$email]);
         }else{
             $Github = filter_input(INPUT_POST,'Github');
         
             if ($Github == "Github"){
                 $header = "Inicio de sesion Github " . $email;
-                echo $blade-> run ('start',['header'=>$header,'email'=>$email]);
+                echo $blade-> run ('main',['header'=>$header,'email'=>$email]);
                 }
             else{
                 $Google = filter_input(INPUT_POST,'Google');
                 
                 if ($Google == "Gooogle"){
                     $header = "Inicio de sesion Google " . $email;
-                    echo $blade-> run ('start',['header'=>$header,'email'=>$email]);
+                    echo $blade-> run ('main',['header'=>$header,'email'=>$email]);
                     }
                 else {
                     $header = "Inicio de sesion " . $email;
