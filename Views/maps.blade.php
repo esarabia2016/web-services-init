@@ -1,20 +1,5 @@
 @extends('master')
 @section('content')
-<div class="cabecera">
-	<ul class="menu">
-		<li><a href="#">Inicio</a>
-		<li><a href="#">Localización</a>
-			<ul>
-				<li><a href="pos.php">Posición</a></li>
-				<li><a href="maps.php">Mapas</a></li>
-			</ul>
-		</li>
-		<li><a href="#">El tiempo</a>
-		</li>
-		<li><a href="catform.php">Catastro</a></li>
-		<li><a href="#">Finanzas</a></li>
-	<ul>
-</div>
 <div style="float:left; width: 100%; text-align: center;">
 <br>
 <p><input type="button" onclick="javascript:showlocation()" value="Localizaci&oacute;n"></p>
