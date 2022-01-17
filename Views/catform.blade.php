@@ -67,7 +67,7 @@
                 <tr><td>&nbsp;</td></tr>
                 <tr>
                     <td width="100" valign="middle" nowrap="nowrap"><span id="lblMunicipio">Municipio:</span></td>
-                    <td width="150"><input name="slcMunicipios" maxlength="30" size="31" id="slcMunicipios" class="textogris" onchange="javascript:document.forms['form1'].idMunicipio.value='';" style="background-color: rgb(210, 210, 210);" disabled="disabled" type="text" list="datalistMunicipios">
+                    <td width="150"><input name="slcMunicipios" maxlength="30" size="31" id="slcMunicipios" onchange="javascript:document.forms['form1'].idMunicipio.value='';" style="background-color: rgb(210, 210, 210);" disabled="disabled" type="text" list="datalistMunicipios">
                         <datalist id="datalistMunicipios">
                         </datalist>
                         &nbsp;</td>
