@@ -5,11 +5,11 @@
 	<table width="800" cellspacing="0" cellpadding="0" border="0">
             <tbody>
                 <tr>
-                    <td>&nbsp;<h1>Consulta de datos catastrales</h1>&nbsp;&nbsp;
-                    </td>
+                    <td colspan="2"><h1>Consulta de datos catastrales</h1></td>
                 </tr>
+                <tr><td>&nbsp;</td></tr>
                 <tr>
-                    <td class="textogris" width="130" valign="middle" nowrap="nowrap"><span id="lblProvincia">Provincia:</span></td>
+                    <td width="130" valign="middle" nowrap="nowrap"><span id="lblProvincia">Provincia:</span></td>
                     <td style="WIDTH: 201px" width="201">
                         <select name="slcProvincias" id="slcProvincias" class="textogris" onchange="javascript:ActualizaListaMunicipios(this[this.selectedIndex].text)" onkeyup="return keyscombo(this.name, 'OVCCiudMuni',this[this.selectedIndex].value)" style="background-color: rgb(210, 210, 210); width: 200px;">
                             <option value="" selected="selected">-- Seleccione una Provincia --</option>
@@ -64,14 +64,16 @@
                        </select>
                     </td>
                 </tr>
+                <tr><td>&nbsp;</td></tr>
                 <tr>
-                    <td class="textogris" width="120" valign="middle" nowrap="nowrap"><span id="lblMunicipio">Municipio:</span></td>
-                    <td class="textogris" width="179"><input name="slcMunicipios" maxlength="30" size="31" id="slcMunicipios" class="textogris" onchange="javascript:document.forms['form1'].idMunicipio.value='';" style="background-color: rgb(210, 210, 210);" disabled="disabled" type="text" list="datalistMunicipios">
+                    <td width="120" valign="middle" nowrap="nowrap"><span id="lblMunicipio">Municipio:</span></td>
+                    <td width="179"><input name="slcMunicipios" maxlength="30" size="31" id="slcMunicipios" class="textogris" onchange="javascript:document.forms['form1'].idMunicipio.value='';" style="background-color: rgb(210, 210, 210);" disabled="disabled" type="text" list="datalistMunicipios">
                         <datalist id="datalistMunicipios">
                         </datalist>
                         &nbsp;</td>
-                    <td class="textogris" width="25">&nbsp;</td>
+                    <td width="25">&nbsp;</td>
                 </tr>
+                <tr><td>&nbsp;</td></tr>
                 <tr>
                     <td class="textogris" width="57" valign="middle"><span id="lblVia">Via:</span></td>
                     <td width="209" valign="middle">
@@ -180,16 +182,15 @@
 			</datalist></td>
                     <td width="26" valign="middle">&nbsp;</td>
                 </tr>
+                <tr><td>&nbsp;</td></tr>
                 <tr>
-                    <td class="textogris" width="94">
+                    <td width="94">
 			<span id="lblNumero">Número:</span></td>
                     <td class="textogris" width="53"><input name="txtNum" maxlength="4" size="5" id="txtNum" class="textogris" onkeyup="javascript:ActualizaListaNumeros(document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].text,document.forms['form1'].slcMunicipios.value,document.forms['form1'].slcSigla.value,document.forms['form1'].txtVia.value,this.value)" style="background-color: rgb(210, 210, 210);" disabled="disabled" type="text">&nbsp;<sup></sup></td>
                     <td class="textogris" colspan="2"></td>
                 </tr>
             </tbody>
         </table>
-	<input name="txtMuniAgr" id="txtMuniAgr" value="" style="background-color: rgb(210, 210, 210);" disabled="disabled" type="hidden"> <input name="txtZCon" id="txtZCon" value="" style="background-color: rgb(210, 210, 210);" disabled="disabled" type="hidden">
-	<input name="txtBic" id="txtBic" value="" type="hidden">&nbsp;
 	<table width="700" cellspacing="0" cellpadding="0" border="0">
             <tbody>
                 <tr>
@@ -197,8 +198,8 @@
 		</tr>
                 <tr>
                     <td valign="middle" align="center">
-                            <span id="lblPonerFocus" style="display:inline-block;width:0px;"><script>function PonerFoco(){}</script></span><span id="lblLanzarAlert" style="display:inline-block;width:0px;"><script>function LanzarAlert(){}</script></span><span id="apenom" style="display:inline-block;width:0px;VISIBILITY: hidden"></span>
-                            <div style="VISIBILITY: hidden"><input name="txtValido" value="V" id="txtValido" class="textogris" disabled="disabled" style="width:0px;" type="text"></div>
+                        <span id="lblPonerFocus" style="display:inline-block;width:0px;"><script>function PonerFoco(){}</script></span><span id="lblLanzarAlert" style="display:inline-block;width:0px;"><script>function LanzarAlert(){}</script></span><span id="apenom" style="display:inline-block;width:0px;VISIBILITY: hidden"></span>
+                        <div style="VISIBILITY: hidden"><input name="txtValido" value="V" id="txtValido" class="textogris" disabled="disabled" style="width:0px;" type="text"></div>
                     </td>
                 </tr>
             </tbody>
