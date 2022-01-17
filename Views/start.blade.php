@@ -1,4 +1,4 @@
-@extends('master')
+@extends('masterinicial')
 @section('content')
 <div style="padding: 10px;width: 40%;">
     <form action="/index.php" method="post" style="border: 2px solid black;padding: 10px;">
