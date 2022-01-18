@@ -10,7 +10,7 @@
     
     session_start();
     
-    $header = "INICIO DE SESSION";
+    $header = "MAPA DE LA POSICION";
     $email = "";
     
     echo $blade-> run ('maps',['header'=>$header,'email'=>$email]);
