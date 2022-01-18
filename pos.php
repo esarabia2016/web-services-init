@@ -10,7 +10,7 @@
     
     session_start();
     
-    $header = "INICIO DE SESSION";
+    $header = "POSICION PRECISA";
     $email = "";
     
     echo $blade-> run ('pos',['header'=>$header,'email'=>$email]);
