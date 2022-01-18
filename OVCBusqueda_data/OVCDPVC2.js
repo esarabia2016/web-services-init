@@ -982,7 +982,7 @@ function ActualizaListaNumeros(Provincia,Municipio,tipoVia,Via,Numero) {
 		document.getElementById("txtNum").value = Numero;
 		}
     }
-	myUrl = 'http://' + 'inmobiliaria.sarcorem.com' + '/ListaNumeros.php?Provincia=' + Provincia + '&Municipio=' + Municipio + '&TipoVia=' +tipoVia + '&NombreVia=' + Via + '&Numero=' + Numero;
+	myUrl = 'http://' + 'localhost:8000' + '/ListaNumeros.php?Provincia=' + Provincia + '&Municipio=' + Municipio + '&TipoVia=' +tipoVia + '&NombreVia=' + Via + '&Numero=' + Numero;
     
 	xmlHttp.open("GET", myUrl, true); // true for asynchronous 
  	xmlHttp.send(null);
@@ -1051,7 +1051,7 @@ function ListaReferenciasCatastrales(RC,numEnVia) {
 	$Provincia = document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].text;
 	$Municipio = document.forms['form1'].slcMunicipios.value;
 	
-	myUrl = 'http://' + 'inmobiliaria.sarcorem.com' + '/ListaRC.php?Provincia=' + $Provincia + '&Municipio=' + $Municipio + '&RC=' + RC;
+	myUrl = 'http://' + 'localhost:8000' + '/ListaRC.php?Provincia=' + $Provincia + '&Municipio=' + $Municipio + '&RC=' + RC;
     
 	xmlHttp.open("GET", myUrl, true); // true for asynchronous 
  	xmlHttp.send(null);
@@ -1119,7 +1119,7 @@ function DatosReferenciaCatastral(RC) {
 	$Provincia = document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].text;
 	$Municipio = document.forms['form1'].slcMunicipios.value;
 	
-	myUrl = 'http://' + 'inmobiliaria.sarcorem.com' + '/ListaRC.php?Provincia=' + $Provincia + '&Municipio=' + $Municipio + '&RC=' + RC;
+	myUrl = 'http://' + 'localhost:8000' + '/ListaRC.php?Provincia=' + $Provincia + '&Municipio=' + $Municipio + '&RC=' + RC;
     
 	xmlHttp.open("GET", myUrl, true); // true for asynchronous 
  	xmlHttp.send(null);
@@ -1201,7 +1201,7 @@ function DatosRefCatastralDir(RC) {
 		}
 	}
 	
-	myUrl = 'http://' + 'inmobiliaria.sarcorem.com' + '/ListaRC.php?Provincia=&Municipio=&RC=' + RC;
+	myUrl = 'http://' + 'localhost:8000' + '/ListaRC.php?Provincia=&Municipio=&RC=' + RC;
     
 	xmlHttp.open("GET", myUrl, true); // true for asynchronous 
  	xmlHttp.send(null);
@@ -1253,7 +1253,7 @@ function ListaRCRusticas(Poligono,Parcela) {
 	$Provincia = document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].text;
 	$Municipio = document.forms['form1'].slcMunicipios.value;
 	
-	myUrl = 'http://' + 'inmobiliaria.sarcorem.com' + '/ListaRCRus.php?Provincia=' + $Provincia + '&Municipio=' + $Municipio + '&Parcela=' + Parcela + '&Poligono=' + Poligono;
+	myUrl = 'http://' + 'localhost.8000' + '/ListaRCRus.php?Provincia=' + $Provincia + '&Municipio=' + $Municipio + '&Parcela=' + Parcela + '&Poligono=' + Poligono;
     
 	xmlHttp.open("GET", myUrl, true); // true for asynchronous 
  	xmlHttp.send(null);
@@ -1328,7 +1328,7 @@ function DatosRCRustica(RC) {
 	$Provincia = document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].text;
 	$Municipio = document.forms['form1'].slcMunicipios.value;
 	
-	myUrl = 'http://' + 'inmobiliaria.sarcorem.com' + '/ListaRC.php?Provincia=' + $Provincia + '&Municipio=' + $Municipio + '&RC=' + RC;
+	myUrl = 'http://' + 'localhost.8000' + '/ListaRC.php?Provincia=' + $Provincia + '&Municipio=' + $Municipio + '&RC=' + RC;
     
 	xmlHttp.open("GET", myUrl, true); // true for asynchronous 
  	xmlHttp.send(null);
