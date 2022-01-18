@@ -845,17 +845,16 @@ function VolverPICTitular(strNif, strNombre) {
 
 function ActualizaListaMunicipios(Provincia) {
 
-	document.getElementById("infoapp").innerHTML = "Actualizando Municipios. Por favor, espere";
-	
-	document.getElementById("slcMunicipios").value = "";
-	document.getElementById("slcSigla").selectedIndex = 0;
+    document.getElementById("infoapp").innerHTML = "Actualizando Municipios. Por favor, espere";
+    document.getElementById("slcMunicipios").value = "";
+    document.getElementById("slcSigla").selectedIndex = 0;
 
     datalistMunicipios = document.getElementById("datalistMunicipios");
 	
-	// Se vacia la lista de una selección anterior
+// Se vacia la lista de una selección anterior
     
     while(datalistMunicipios.options.length != 0){    
-		datalistMunicipios.removeChild(datalistMunicipios.lastChild);
+	datalistMunicipios.removeChild(datalistMunicipios.lastChild);
     	}
     
 	// Petición de la lista de municipios a la web del catastro
@@ -863,17 +862,21 @@ function ActualizaListaMunicipios(Provincia) {
         xmlHttp.onreadystatechange = function() { 
 	
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
-			parser = new DOMParser();
-			xmlDoc = parser.parseFromString(xmlHttp.responseText,"text/xml");
+		parser = new DOMParser();
+		xmlDoc = parser.parseFromString(xmlHttp.responseText,"text/xml");
 			
-			$numMunicipios = parseInt(xmlDoc.getElementsByTagName("cumun")[0].childNodes[0].nodeValue);
+		$numMunicipios = parseInt(xmlDoc.getElementsByTagName("cumun")[0].childNodes[0].nodeValue);
 
-			for ($i = 0 ; $i < $numMunicipios ; $i++) {
-				Municipio = document.createElement('OPTION');
-				Municipio.setAttribute("value", xmlDoc.getElementsByTagName("nm")[$i].childNodes[0].nodeValue);
-				document.getElementById("datalistMunicipios").appendChild(Municipio);
+		for ($i = 0 ; $i < $numMunicipios ; $i++) {
+			Municipio = document.createElement('OPTION');
+			Municipio.setAttribute("value", xmlDoc.getElementsByTagName("nm")[$i].childNodes[0].nodeValue);
+			document.getElementById("datalistMunicipios").appendChild(Municipio);
 			}
-			document.getElementById("infoapp").innerHTML = "";
+		document.getElementById("infoapp").innerHTML = "";
+                document.getElementById("slcMunicipios").disabled = false;
+                document.getElementById("slcSigla").disabled = false;
+                document.getElementById("txtVia").disabled = false;
+                document.getElementById("txtNum").disabled = false;
 		}
     }
 	myUrl = 'http://' + 'localhost:8000' + '/ListaMunicipios.php?Provincia=' + Provincia + '&Municipio=';
@@ -886,9 +889,8 @@ function ActualizaListaMunicipios(Provincia) {
 
 function ActualizaListaVias(Provincia,Municipio,tipoVia) {
 	
-	document.getElementById("infoapp").innerHTML = "Actualizando Vias. Por favor, espere";
-	
-	document.getElementById("txtVia").value = "";
+    document.getElementById("infoapp").innerHTML = "Actualizando Vias. Por favor, espere";
+    document.getElementById("txtVia").value = "";
 	
     datalistVias = document.getElementById("datalistVias");
 	
@@ -898,31 +900,31 @@ function ActualizaListaVias(Provincia,Municipio,tipoVia) {
 		datalistVias.removeChild(datalistVias.lastChild);
     	}
     
-	// Petición de la lista de municipios a la web del catastro
-	xmlHttp = new XMLHttpRequest();
+    // Petición de la lista de municipios a la web del catastro
+    xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
 	
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
-			parser = new DOMParser();
-			xmlDoc = parser.parseFromString(xmlHttp.responseText,"text/xml");
+    if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
+	parser = new DOMParser();
+	xmlDoc = parser.parseFromString(xmlHttp.responseText,"text/xml");
 			
-			if (xmlDoc.getElementsByTagName("cuerr").length > 0) {
-				document.getElementById("infoapp").innerHTML = xmlDoc.getElementsByTagName("des")[0].childNodes[0].nodeValue;
-			}
-			else {
-				$numVias = parseInt(xmlDoc.getElementsByTagName("cuca")[0].childNodes[0].nodeValue);
+	if (xmlDoc.getElementsByTagName("cuerr").length > 0) {
+            document.getElementById("infoapp").innerHTML = xmlDoc.getElementsByTagName("des")[0].childNodes[0].nodeValue;
+            }
+	else {
+            $numVias = parseInt(xmlDoc.getElementsByTagName("cuca")[0].childNodes[0].nodeValue);
 
-				for ($i = 0 ; $i < $numVias ; $i++) {
-					Via = document.createElement('OPTION');
-					Via.setAttribute("value", xmlDoc.getElementsByTagName("nv")[$i].childNodes[0].nodeValue);
-					document.getElementById("datalistVias").appendChild(Via);
-				}
+		for ($i = 0 ; $i < $numVias ; $i++) {
+                    Via = document.createElement('OPTION');
+                    Via.setAttribute("value", xmlDoc.getElementsByTagName("nv")[$i].childNodes[0].nodeValue);
+                    document.getElementById("datalistVias").appendChild(Via);
+                    }
 
-				document.getElementById("infoapp").innerHTML = "";
-			}
+		document.getElementById("infoapp").innerHTML = "";
 		}
+            }
     }
-	myUrl = 'http://' + 'inmobiliaria.sarcorem.com' + '/ListaVias.php?Provincia=' + Provincia + '&Municipio=' + Municipio + '&TipoVia=' +tipoVia;
+	myUrl = 'http://' + 'localhost:8000' + '/ListaVias.php?Provincia=' + Provincia + '&Municipio=' + Municipio + '&TipoVia=' +tipoVia;
     
 	xmlHttp.open("GET", myUrl, true); // true for asynchronous 
  	xmlHttp.send(null);
