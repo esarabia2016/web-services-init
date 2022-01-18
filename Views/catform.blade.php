@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<div>
+<div style="padding: 10px;">
     <form method="post" action="catastro.php" id="form1" style="MARGIN-TOP: 0px">
 	<table width="800" cellspacing="0" cellpadding="0" border="0">
             <tbody>
@@ -11,7 +11,7 @@
                 <tr>
                     <td width="100" valign="middle" nowrap="nowrap"><span id="lblProvincia">Provincia:</span></td>
                     <td width="150">
-                        <select name="slcProvincias" id="slcProvincias" onchange="javascript:ActualizaListaMunicipios(this[this.selectedIndex].text)" onkeyup="return keyscombo(this.name, 'OVCCiudMuni',this[this.selectedIndex].value)" style="background-color: rgb(210, 210, 210); width: 200px;">
+                        <select name="slcProvincias" id="slcProvincias" onchange="javascript:ActualizaListaMunicipios(this[this.selectedIndex].text)" onkeyup="return keyscombo(this.name, 'OVCCiudMuni',this[this.selectedIndex].value)" width: 200px;">
                             <option value="" selected="selected">-- Seleccione una Provincia --</option>
                             <option value="15">A CORUÑA</option>
                             <option value="3">ALACANT</option>
@@ -67,7 +67,7 @@
                 <tr><td>&nbsp;</td></tr>
                 <tr>
                     <td width="100" valign="middle" nowrap="nowrap"><span id="lblMunicipio">Municipio:</span></td>
-                    <td width="150"><input list="datalistMunicipios" name="slcMunicipios" maxlength="30" size="31" id="slcMunicipios" onchange="javascript:document.forms['form1'].idMunicipio.value='';" style="background-color: rgb(210, 210, 210);" disabled="disabled" type="text">
+                    <td width="150"><input list="datalistMunicipios" name="slcMunicipios" maxlength="30" size="31" id="slcMunicipios" disabled="disabled" type="text">
                         <datalist id="datalistMunicipios">
                         </datalist>
                         &nbsp;</td>
@@ -77,7 +77,7 @@
                 <tr>
                     <td width="100" valign="middle"><span id="lblVia">Via:</span></td>
                     <td width="150" valign="middle">
-                        <select name="slcSigla" id="slcSigla" onchange="javascript:ActualizaListaVias(document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].text,document.forms['form1'].slcMunicipios.value,this[this.selectedIndex].value)" style="background-color: rgb(210, 210, 210); width: 195px; z-index: 1;" disabled="disabled">
+                        <select name="slcSigla" id="slcSigla" onchange="javascript:ActualizaListaVias(document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].text,document.forms['form1'].slcMunicipios.value,this[this.selectedIndex].value)" disabled="disabled">
                             <option value="" selected="selected">-- Seleccione un tipo de Vía --</option>
                             <option value="CL">CALLE</option>
                             <option value="AV">AVENIDA</option>
@@ -175,9 +175,8 @@
                             <option value="VL">VIAL</option>
                             <option value="--">--</option>
                         </select>
-                        <input name="hdTipoVia" id="hdTipoVia" type="hidden">
                     </td>
-                    <td valign="middle" align="right">&nbsp;<input name="txtVia" maxlength="25" size="25" id="txtVia" class="textogris" onkeypress="javascript:Pulsacion(event,'BuscarVias');" onchange="javascript:document.forms['form1'].hdCodVia.value='';" style="background-color: rgb(210, 210, 210);" disabled="disabled" type="text" list="datalistVias">
+                    <td width="150"><input name="txtVia" maxlength="25" size="25" id="txtVia" onkeypress="javascript:Pulsacion(event,'BuscarVias');" disabled="disabled" type="text" list="datalistVias">
 			<datalist id="datalistVias">
 			</datalist></td>
                     <td width="26" valign="middle">&nbsp;</td>
@@ -186,7 +185,7 @@
                 <tr>
                     <td width="100">
 			<span id="lblNumero">Número:</span></td>
-                    <td width="150"><input name="txtNum" maxlength="4" size="5" id="txtNum" class="textogris" onkeyup="javascript:ActualizaListaNumeros(document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].text,document.forms['form1'].slcMunicipios.value,document.forms['form1'].slcSigla.value,document.forms['form1'].txtVia.value,this.value)" style="background-color: rgb(210, 210, 210);" disabled="disabled" type="text">&nbsp;<sup></sup></td>
+                    <td width="150"><input name="txtNum" maxlength="4" size="5" id="txtNum" onkeyup="javascript:ActualizaListaNumeros(document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].text,document.forms['form1'].slcMunicipios.value,document.forms['form1'].slcSigla.value,document.forms['form1'].txtVia.value,this.value)" disabled="disabled" type="text">&nbsp;<sup></sup></td>
                     <td colspan="2"></td>
                 </tr>
             </tbody>
@@ -194,7 +193,7 @@
 	<table width="700" cellspacing="0" cellpadding="0" border="0">
             <tbody>
                 <tr>
-                    <td class="textogris" height="20"></td>
+                    <td height="20"></td>
 		</tr>
                 <tr>
                     <td valign="middle" align="center">
