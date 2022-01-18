@@ -22,7 +22,7 @@
 				<li><a href="maps.php">Mapas</a></li>
 			</ul>
 		</li>
-		<li><a href="#">El tiempo</a></li>
+		<li><a href="weather.php">El tiempo</a></li>
 		<li><a href="catform.php">Catastro</a></li>
 		<li><a href="#">Finanzas</a></li>
             <ul>
