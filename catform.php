@@ -10,7 +10,7 @@
     
     session_start();
     
-    $header = "INICIO DE SESSION";
+    $header = "INFORMACION CATASTRAL";
     $email = "";
     
     echo $blade-> run ('catform',['header'=>$header,'email'=>$email]);
