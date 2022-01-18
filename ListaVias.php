@@ -1,6 +1,10 @@
 <?php 
 header("Content-type:text/xml");
 
+$nombreProvincia = "";
+$nombreMunicipio = "";
+$nombreVia = "";
+
 if (isset($_REQUEST['Provincia'])){
 	$nombreProvincia= $_REQUEST['Provincia'];
 	}
