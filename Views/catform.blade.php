@@ -67,7 +67,7 @@
                 <tr><td>&nbsp;</td></tr>
                 <tr>
                     <td width="100" valign="middle" nowrap="nowrap"><span id="lblMunicipio">Municipio:</span></td>
-                    <td width="150"><input name="slcMunicipios" maxlength="30" size="31" id="slcMunicipios" onchange="javascript:document.forms['form1'].idMunicipio.value='';" style="background-color: rgb(210, 210, 210);" disabled="disabled" type="text" list="datalistMunicipios">
+                    <td width="150"><input list="datalistMunicipios" name="slcMunicipios" maxlength="30" size="31" id="slcMunicipios" onchange="javascript:document.forms['form1'].idMunicipio.value='';" style="background-color: rgb(210, 210, 210);" disabled="disabled" type="text">
                         <datalist id="datalistMunicipios">
                         </datalist>
                         &nbsp;</td>
@@ -77,7 +77,7 @@
                 <tr>
                     <td width="100" valign="middle"><span id="lblVia">Via:</span></td>
                     <td width="150" valign="middle">
-                        <select name="slcSigla" id="slcSigla" class="textogris" onchange="javascript:ActualizaListaVias(document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].text,document.forms['form1'].slcMunicipios.value,this[this.selectedIndex].value)" style="background-color: rgb(210, 210, 210); width: 195px; z-index: 1;" disabled="disabled">
+                        <select name="slcSigla" id="slcSigla" onchange="javascript:ActualizaListaVias(document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].text,document.forms['form1'].slcMunicipios.value,this[this.selectedIndex].value)" style="background-color: rgb(210, 210, 210); width: 195px; z-index: 1;" disabled="disabled">
                             <option value="" selected="selected">-- Seleccione un tipo de Vía --</option>
                             <option value="CL">CALLE</option>
                             <option value="AV">AVENIDA</option>
