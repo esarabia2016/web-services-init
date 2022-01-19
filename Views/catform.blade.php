@@ -1,4 +1,4 @@
-@extends('master')
+@extends('masterapp')
 @section('content')
 <div style="padding: 10px;">
     <form method="post" action="catastro.php" id="form1" style="MARGIN-TOP: 0px">
