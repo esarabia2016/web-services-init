@@ -15,7 +15,7 @@
         </header>
         <div class="cabecera">
             <ul class="menu">
-		<li><a href="#">Inicio</a>
+		<li><a href="index.php">Inicio</a>
 		<li><a href="#">Localización</a>
 			<ul>
 				<li><a href="pos.php">Posición</a></li>
