@@ -1,4 +1,4 @@
-@extends('master')
+@extends('masterapp')
 @section('content')
 <div style="float:left; width: 100%; text-align: center;">
 <br>
