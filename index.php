@@ -10,7 +10,7 @@
     
     session_start();
     
-    $header = "INICIO DE SESSION";
+    $header = "INFORMACION CATASTRAL";
     $email = "";
     
     if(empty($_POST))
