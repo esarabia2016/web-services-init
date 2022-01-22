@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <link href="style.css" rel="stylesheet" type="text/css">
         <title>Web Services</title>
-        <script type="text/javascript" language="javascript" src="OVCBusqueda_data/OVCNavegador.js"></script>
 	<script type="text/javascript" language="javascript" src="OVCBusqueda_data/OVCFunciones.js"></script>
 	<script type="text/javascript" language="javascript" src="OVCBusqueda_data/OVCDPVC2.js"></script>
 	<script type="text/javascript" language="javascript" src="OVCBusqueda_data/OVCDPVC2Bis.js"></script>
