@@ -7,45 +7,7 @@ function tieneCaracterRaro(cCadena) {
     }
     return false;
 }
-function ConsultarDatos() {
-    document.forms['form1'].tipoBusqueda.value = 'Alfa';
-    if (validarAceptar()) {
-        var LayerTapadera;
-        LayerTapadera = document.getElementById('Tapadera');
-        LayerTapadera.style.visibility = 'visible';
-        document.forms['form1'].submit();
-    } else {
-        document.forms['form1'].tipoBusqueda.value = '';
-    }
-}
-function ConsultarCarto() {
-    document.forms['form1'].tipoBusqueda.value = 'Carto';
-    if (validarAceptar()) {
-        var LayerTapadera;
-        LayerTapadera = document.getElementById('Tapadera');
-        LayerTapadera.style.visibility = 'visible';
-        document.forms['form1'].submit();
-    } else {
-        document.forms['form1'].tipoBusqueda.value = '';
-    }
-}
 
-function InicializarLocalizacion() {
-    LimpiarProvMuni()
-    LimpiarLocUrbanos()
-    LimpiarLocRusticos()
-    HabilitarRBLocalizacion(false)
-    HabilitarProvMuni(false)
-    HabilitarLocUrbanos(false)
-    HabilitarLocRusticos(false)
-    document.forms['form1'].txtMuniAgr.value = ""
-    document.forms['form1'].txtZCon.value = ""
-    document.forms['form1'].txtBic.value = ""
-    document.forms['form1'].txtMuniAgr.style.backgroundColor = "rgb(210,210,210)"
-    document.forms['form1'].txtZCon.style.backgroundColor = "rgb(210,210,210)"
-    document.forms['form1'].txtMuniAgr.disabled = true
-    document.forms['form1'].txtZCon.disabled = true
-}
 function InicializarRC() {
     HabilitarRC(false)
     document.forms['form1'].txtRC.value = ""
@@ -165,14 +127,6 @@ function HabilitarLocUrbanos(habilitar) {
 //    document.forms['form1'].txtIdufir.style.backgroundColor = colorF
 //    document.forms['form1'].txtIdufir.disabled = !(habilitar)
 //}
-/*
-function HabilitarLocBices(habilitar){
-var colorF
-colorF = ColorFondo(habilitar)
-document.forms['form1'].slcBices.style.backgroundColor = colorF
-document.forms['form1'].slcBices.disabled=!(habilitar)
-}
-*/
 function LimpiarRCUrbanos() {
     document.forms['form1'].txtRC1U.value = ""
     document.forms['form1'].txtRC2U.value = ""
@@ -208,15 +162,7 @@ function LimpiarLocRusticos() {
     document.forms['form1'].txtPol.value = ""
     document.forms['form1'].txtPar.value = ""
 }
-//function LimpiarLocIdufir() {
-//    document.forms['form1'].txtIdufir.value = ""
-//   
-//}
-/*
-function LimpiarLocBices(){
-document.forms['form1'].slcBices.selectedIndex=0
-}
-*/
+
 function ColorFondo(valor) {
     var colorF
     if (valor) {
@@ -259,32 +205,6 @@ function HabilitarUrbRus() {
             document.forms['form1'].txtMuniAgr.style.backgroundColor = "rgb(255,255,255)"
             document.forms['form1'].txtZCon.style.backgroundColor = "rgb(255,255,255)"
         }
-       /* else {
-            if (document.forms['form1'].rdb_UrbRus[2].checked) {
-                LimpiarLocUrbanos()
-                LimpiarLocRusticos()
-                
-                HabilitarLocUrbanos(false)
-                HabilitarLocRusticos(false)
-                
-                HabilitarLocIdufir(true)
-                document.forms['form1'].txtIdufir.focus()
-                document.forms['form1'].txtMuniAgr.disabled = false
-                document.forms['form1'].txtZCon.disabled = false
-                document.forms['form1'].txtMuniAgr.style.backgroundColor = "rgb(255,255,255)"
-                document.forms['form1'].txtZCon.style.backgroundColor = "rgb(255,255,255)"
-            }
-        }
-        */
-        /*
-        else{
-        LimpiarLocUrbanos()
-        LimpiarLocRusticos()
-        HabilitarLocUrbanos(false)
-        HabilitarLocRusticos(false)
-        HabilitarLocBices(true)
-        }
-        */
     }
 }
 function abreVentanaVias() {
