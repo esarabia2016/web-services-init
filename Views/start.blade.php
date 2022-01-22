@@ -1,13 +1,8 @@
 @extends('masterapp')
 @section('content')
-<div style="padding: 10px;width: 40%;">
-    <form action="/index.php" method="post" style="border: 2px solid black;padding: 10px;">
-        <label for="email">E-mail: </label><br>
-        <input type="text" id="email" name="email" value=""><br>
-        <br>
-        <a href="{{$url}}">Validar con Google</a><br>
-        <br>
-        <input type="submit" name="Google" id="Google" value="Validar con Google"><br>
-    </form>
-</div>
+    <div style="margin: 5px; padding: 5px;">
+        <h1>Para utilizar los servicios de este sitio web es necesario validarse con Google</h1>
+    </div>
+    <button onclick="location.href='{{$url}}'" type="button" style="padding: 15px 32px;margin: 5px; font-size: 32px;">
+         Validar con Google</button>
 @endSection
