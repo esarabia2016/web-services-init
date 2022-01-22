@@ -8,10 +8,6 @@ function tieneCaracterRaro(cCadena) {
     return false;
 }
 
-function InicializarRC() {
-    HabilitarRC(false)
-    document.forms['form1'].txtRC.value = ""
-}
 function HabilitarRC(habilitar) {
     var colorF
     colorF = ColorFondo(habilitar)
