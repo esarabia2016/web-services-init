@@ -1,10 +1,3 @@
-﻿document.onmouseover = hidestatus
-document.onmouseout = hidestatus
-function hidestatus() {
-    window.status = 'Sede Electrónica del Catastro.'
-    return true
-}
-function Volver() { history.back(-1) }
 function tieneCaracterRaro(cCadena) {
     for (var i = 0; i < cCadena.length; i++) {
         var ch = cCadena.substring(i, i + 1)
@@ -36,69 +29,7 @@ function ConsultarCarto() {
         document.forms['form1'].tipoBusqueda.value = '';
     }
 }
-function ConsultarAmbito() {
-    var url = 'https://www1.sedecatastro.gob.es/CYCBienInmueble/OVCListaAmbitos.aspx';
-    var hWnd = window.open(url, "ListaAmbitos", "top=0,width=475,height=445,resizable=yes,status=yes,scrollbars=yes");
-    if ((document.window != null) && (!hWnd.opener))
-        hWnd.opener = self;
-    hWnd.focus();
-}
-function Habilitar2() {
-   
-    if ((!document.forms['form1'].rdb_Tipo[1].checked) && (!document.forms['form1'].rdb_Tipo[0].checked)) {
-        document.forms['form1'].rdb_Tipo[0].checked = true
-      
-    }
-   
-    if (document.forms['form1'].rdb_Tipo[0].checked) {
-        InicializarLocalizacion();
-        HabilitarRC(true)
-    }
-    else {
-         document.forms['form1'].rdb_Tipo[1].checked = true
-         InicializarRC()
-         HabilitarProvMuni(true)
-         HabilitarRBLocalizacion(true)
-         document.forms['form1'].slcProvincias.focus()
-            if (!(document.forms['form1'].slcProvincias.selectedIndex == 0)) {
-                document.forms['form1'].slcMunicipios.focus();
-            }
-            if ((!document.forms['form1'].rdb_UrbRus[0].checked) && (!document.forms['form1'].rdb_UrbRus[1].checked) ) {
-                document.forms['form1'].rdb_UrbRus[0].checked = true
-            }
-          
-            if (document.forms['form1'].rdb_UrbRus[0].checked) {
-                LimpiarLocRusticos()
-                HabilitarLocUrbanos(true)
-                HabilitarLocRusticos(false)
-            }
-            else {
-                if (document.forms['form1'].rdb_UrbRus[1].checked) {
-                    LimpiarLocUrbanos()
-                    HabilitarLocUrbanos(false)
-                    HabilitarLocRusticos(true)
-                }
-                /*else {
-                    if (document.forms['form1'].rdb_UrbRus[2].checked) {
-                        LimpiarLocUrbanos()
-                        LimpiarLocRusticos()
-                        HabilitarLocUrbanos(false)
-                        HabilitarLocRusticos(false)
-                    }
-                    
-                }*/
-                /*
-                else{
-                LimpiarLocUrbanos()
-                LimpiarLocRusticos()
-                HabilitarLocUrbanos(false)
-                HabilitarLocRusticos(false)
-                HabilitarLocBices(true)
-                }
-                */
-        }
-    }
-}
+
 function InicializarLocalizacion() {
     LimpiarProvMuni()
     LimpiarLocUrbanos()
