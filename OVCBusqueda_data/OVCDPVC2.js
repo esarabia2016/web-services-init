@@ -8,24 +8,6 @@ function tieneCaracterRaro(cCadena) {
     return false;
 }
 
-function HabilitarProvMuni(habilitar) {
-    var colorF;
-    colorF = ColorFondo(habilitar);
-    document.forms['form1'].slcProvincias.style.backgroundColor = colorF;
-    document.forms['form1'].slcMunicipios.style.backgroundColor = colorF;
-    document.forms['form1'].slcProvincias.disabled = !(habilitar);
-    document.forms['form1'].slcMunicipios.disabled = !(habilitar);
-    if (habilitar) {
-        if (document.forms['form1'].slcProvincias.selectedIndex == 0) {
-            if (!(document.forms['form1'].hdProvincia.value == "")) {
-                document.forms['form1'].slcProvincias.selectedIndex = document.forms['form1'].hdProvincia.value;
-                if (!(document.forms['form1'].hdMunicipio.value == "")) {
-                    document.forms['form1'].slcMunicipios.value = document.forms['form1'].hdMunicipio.value;
-                }
-            }
-        }
-    }
-}
 function HabilitarLocRusticos(habilitar) {
     var colorF
     colorF = ColorFondo(habilitar)
@@ -54,12 +36,7 @@ function HabilitarLocUrbanos(habilitar) {
 //    document.forms['form1'].txtPlt.disabled = !(habilitar)
 //    document.forms['form1'].txtPta.disabled = !(habilitar)
 }
-//function HabilitarLocIdufir(habilitar) {
-//    var colorF
-//    colorF = ColorFondo(habilitar)
-//    document.forms['form1'].txtIdufir.style.backgroundColor = colorF
-//    document.forms['form1'].txtIdufir.disabled = !(habilitar)
-//}
+
 function LimpiarRCUrbanos() {
     document.forms['form1'].txtRC1U.value = ""
     document.forms['form1'].txtRC2U.value = ""
@@ -176,26 +153,7 @@ function abreVentanaNumeros() {
     hWnd.focus();
     return false;
 }
-function abreVentanaKilometros() {
-    var m_via = document.forms['form1'].txtVia.value
-    for (i = 1; i < m_via.length; i++) {
-        m_via = m_via.replace(" ", "@")
-    }
-    var m_Muni = document.forms['form1'].slcMunicipios.value
-    for (i = 1; i < m_Muni.length; i++) {
-        m_Muni = m_Muni.replace(" ", "@")
-    }
-    var m_Prov = document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].text
-    for (i = 1; i < m_Prov.length; i++) {
-        m_Prov = m_Prov.replace(" ", "@")
-    }
-    var url = 'https://www1.sedecatastro.gob.es/CYCBienInmueble/OVCListaKilometros.aspx?tipo=elegir&codVia=' + document.forms['form1'].hdCodVia.value + '&via=' + encodeURIComponent(m_via) + '&tipoVia=' + document.forms['form1'].slcSigla[document.forms['form1'].slcSigla.selectedIndex].value + '&prov=' + document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].value + '&muni=' + document.forms['form1'].idMunicipio.value + '&DescMuni=' + encodeURIComponent(m_Muni) + '&DescProv=' + encodeURIComponent(m_Prov) + '&pStrNum=' + document.forms['form1'].txtNum.value + '&pStrBloque=' + document.forms['form1'].txtBlq.value + '&pStrEscalera=' + document.forms['form1'].txtEsc.value + '&pStrPlanta=' + document.forms['form1'].txtPlt.value + '&pStrPuerta=' + document.forms['form1'].txtPta.value;
-    var hWnd = window.open(url, "opciones", "top=0,width=475,height=445,resizable=yes,status=yes,scrollbars=yes");
-    if ((document.window != null) && (!hWnd.opener))
-        hWnd.opener = self;
-    hWnd.focus();
-    return false;
-}
+
 function abreVentanaMunicipios() {
     var m_municipio
     if (!(document.forms['form1'].idMunicipio.value == "")) {
@@ -269,40 +227,7 @@ function blnValidarBuscarNumero() {
     }
     return blnOK
 }
-function blnValidarBuscarKilometro() {
-    var blnOK
-    blnOK = true
-    if (document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].value == '') {
-        blnOK = false
-        alert('Debe seleccionar una provincia3.')
-        document.forms['form1'].slcProvincias.focus()
-    }
-    else
-        if (document.forms['form1'].slcMunicipios.value.length < 2) {
-        blnOK = false
-        alert('El nombre del municipio debe tener al menos dos caracteres.')
-        document.forms['form1'].slcMunicipios.focus()
-    }
-    else
-        if (document.forms['form1'].slcSigla[document.forms['form1'].slcSigla.selectedIndex].value == '') {
-        blnOK = false
-        alert('Debe seleccionar un tipo de vía.')
-        document.forms['form1'].slcSigla.focus()
-    }
-    else
-        if (trim(document.forms['form1'].txtVia.value).length == 0) {
-        blnOK = false
-        alert('Debe introducir el nombre de la vía.')
-        document.forms['form1'].txtVia.focus()
-    }
-    else
-        if (document.forms['form1'].txtNum.value != '' && !esentero(document.forms['form1'].txtNum.value)) {
-        blnOK = false
-        alert('El número debe ser entero de hasta 4 dígitos.')
-        document.forms['form1'].txtNum.focus()
-    }
-    return blnOK
-}
+
 function blnValidarBuscarMunicipios() {
     var blnOK
     blnOK = true
@@ -473,85 +398,7 @@ function blnValidarLocRust() {
     }
     return blnOK;
 }
-function blnValidarRC() {
-    var blnOK = true;
-    var rc;
-    var rcLimpio = "";
-    //if (document.forms['form1'].tipoBusqueda.value == 'Alfa') {
-        blnOK = blnValidarFinalidad();
-    //}
-    if (blnOK) {
-        rc = document.forms['form1'].txtRC.value;
-        var rx = new RegExp("[a-zñA-ZÑ0-9-]");
-        for (var i = 0; i < rc.length; i++) {
-            var intermedio = rc.substring(i, i + 1);
-            var matches = rx.exec(intermedio);
-            if (matches != null && intermedio == matches[0]) {
-                rcLimpio = rcLimpio + intermedio;
-            }
-        }
-        rc = rcLimpio;
-        if (document.forms['form1'].tipoBusqueda.value == 'Alfa') {
-            if ((rc == "") || (rc.length < 7)) {
-                blnOK = false;
-                alert('La referencia catastral es un código de 20 números y/o letras. Deberá introducir al menos 7 de ellas.');
-                document.forms['form1'].txtRC.focus();
-            } else {
-                if ((rc.length > 7) && (rc.length < 14)) {
-                    blnOK = false;
-                    alert('La referencia catastral es un código de 20 números y/o letras. Deberá introducir al menos 7 o 14 de ellas.');
-                    document.forms['form1'].txtRC.focus();
-                } else {
-                    if ((rc.length > 14) && (rc.length < 18)) {
-                        blnOK = false;
-                        alert('La referencia catastral es un código de 20 números y/o letras. Deberá introducir al menos 7, 14 o 18 de ellas.');
-                        document.forms['form1'].txtRC.focus();
-                    } else {
-                        if ((rc.length > 18) && (rc.length < 20)) {
-                            blnOK = false;
-                            alert('La referencia catastral es un código de 20 números y/o letras. Deberá introducir al menos 7, 14, 18 o 20 de ellas');
-                            document.forms['form1'].txtRC.focus();
-                        } else {
-                            if (rc.length > 20) {
-                                blnOK = false;
-                                alert('El código de Referencia Catastral debe ser una secuencia como máximo de 20 números y/o letras.');
-                                document.forms['form1'].txtRC.focus();
-                            } else {
-                                
 
-                                if (rc.length == 7) {
-                                    blnOK = false;
-                                    if (confirm('Recomendamos que busque por los 14 dígitos de la Referencia Catastral.\nLa búsqueda por los 7 primeros dígitos puede ser muy lenta e incluso fallar\n Pulse Aceptar para continuar con esta busqueda')) {
-                                        blnOK = true;
-                                    }
-                                    else {
-                                        blnOK = false;
-                                        document.forms['form1'].txtRC.focus();
-                                    }
-
-                                }
-                                //}
-                            }
-                        }
-                    }
-                }
-            }
-        } else {
-            if ((rc == "") || (rc.length < 14)) {
-                blnOK = false;
-                alert('La referencia catastral es un código de 20 números y/o letras. Deberá introducir al menos 14 de ellas.');
-                document.forms['form1'].txtRC.focus();
-            } else {
-                if (rc.length > 20) {
-                    blnOK = false;
-                    alert('El código de Referencia Catastral debe ser una secuencia como máximo de 20 números y/o letras.');
-                    document.forms['form1'].txtRC.focus();
-                }
-            }
-        }
-    }
-    return blnOK;
-}
 function blnValidarFinalidad() {
     var blnOK;
     blnOK = true;
@@ -602,30 +449,13 @@ function BuscarNumero() {
         if (blnValidarBuscarNumero())
         abreVentanaNumeros()
 }
-function BuscarKilometro() {
-    if (document.forms['form1'].rdb_UrbRus[0].checked)
-        if (blnValidarBuscarKilometro())
-        abreVentanaKilometros()
-}
+
 function BuscarMunicipios() {
     if (document.forms['form1'].rdb_Tipo[1].checked) {
         if (blnValidarBuscarMunicipios())
             abreVentanaMunicipios()
     }
 }
-function AcotarMunicipio(msg) {
-    alert(msg);
-}
-
-function VolverPIC() {
-    window.location = "../CYCBienInmueble/OVCPuntoInfCat.aspx?PICNuevo=S"
-}
-
-function VolverPICTitular(strNif, strNombre) {
-    window.location = "../EnsConUsuReg/EnsConAmbTR.asp?ccaa=-1&prov=-1&esnac=1&cs=24&nif=" & strNif & "&nomccaa=--+SELECCIONE+UNA+C.AUTONOMA+--&nomprov=--+SELECCIONE+UNA+PROVINCIA+--&muni=-1&nommuni=--+Seleccione+un+municipio+--&dele=-1&tipo=0&intnumpag=0&cadnom=" & strNombre & "&cmb_muni=-1&rdbTipoBien=on"
-}
-
-// Actualización input municipios
 
 function ActualizaListaMunicipios(Provincia) {
 
@@ -986,133 +816,6 @@ function DatosRefCatastralDir(RC) {
 	}
 	
 	myUrl = 'http://' + 'localhost:8000' + '/ListaRC.php?Provincia=&Municipio=&RC=' + RC;
-    
-	xmlHttp.open("GET", myUrl, true); // true for asynchronous 
- 	xmlHttp.send(null);
-}
-
-function ListaRCRusticas(Poligono,Parcela) {
-	// Mensaje de espera
-	document.getElementById("infoapp").innerHTML = 'Buscando referencias catastrales';
-	
-	// Preparar tabla propiedades
-	
-	$ListaHojas = '<table width="100%" cellspacing="0" cellpadding="1" border="1"><tbody>';
-	$ListaHojas = $ListaHojas + '<th>Poligono</th><th>Parcela</th><th>Nombre</th><th>Referencia Catastral</th>';
-	
-	// Petición de la lista de numeros a la web del catastro
-	xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-	
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
-			parser = new DOMParser();
-			xmlDoc = parser.parseFromString(xmlHttp.responseText,"text/xml");
-			
-			$numRC = parseInt(xmlDoc.getElementsByTagName("cudnp")[0].childNodes[0].nodeValue);
-			
-			for ($i = 0 ; $i < $numRC ; $i++) {
-				$RefCatastral = xmlDoc.getElementsByTagName("pc1")[$i].childNodes[0].nodeValue + xmlDoc.getElementsByTagName("pc2")[$i].childNodes[0].nodeValue + xmlDoc.getElementsByTagName("car")[$i].childNodes[0].nodeValue + xmlDoc.getElementsByTagName("cc1")[$i].childNodes[0].nodeValue + xmlDoc.getElementsByTagName("cc2")[$i].childNodes[0].nodeValue;
-
-				$ListaHojas = $ListaHojas + '<tr><td>';
-				$ListaHojas = $ListaHojas + xmlDoc.getElementsByTagName("cpo")[$i].childNodes[0].nodeValue;
-				$ListaHojas = $ListaHojas + '</td><td>';
-				$ListaHojas = $ListaHojas + xmlDoc.getElementsByTagName("cpa")[$i].childNodes[0].nodeValue;
-				$ListaHojas = $ListaHojas + '</td><td>';
-				$ListaHojas = $ListaHojas + xmlDoc.getElementsByTagName("npa")[$i].childNodes[0].nodeValue;
-				$ListaHojas = $ListaHojas + '</td><td>';
-				$ListaHojas = $ListaHojas + '<a class="textorojo" ';
-				$ListaHojas = $ListaHojas +	"href=javascript:DatosRCRustica('";
-				$ListaHojas = $ListaHojas + $RefCatastral;
-				$ListaHojas = $ListaHojas + "');>";
-				$ListaHojas = $ListaHojas + $RefCatastral;
-				$ListaHojas = $ListaHojas + '</a>';
-				$ListaHojas = $ListaHojas + '</td></tr>';
-			}
-
-		$ListaHojas = $ListaHojas + '</tbody></table>';
-		document.getElementById("infoapp").innerHTML = $ListaHojas;
-		}
-    }
-	
-	$Provincia = document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].text;
-	$Municipio = document.forms['form1'].slcMunicipios.value;
-	
-	myUrl = 'http://' + 'localhost.8000' + '/ListaRCRus.php?Provincia=' + $Provincia + '&Municipio=' + $Municipio + '&Parcela=' + Parcela + '&Poligono=' + Poligono;
-    
-	xmlHttp.open("GET", myUrl, true); // true for asynchronous 
- 	xmlHttp.send(null);
-}
-
-function DatosRCRustica(RC) {
-	// Mensaje de espera
-	document.getElementById("infoapp").innerHTML = 'Buscando Datos Catastrales';
-		
-	// Petición de datos catastrales
-	xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-		if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
-			parser = new DOMParser();
-			xmlDoc = parser.parseFromString(xmlHttp.responseText,"text/xml");
-			
-			$numRC = parseInt(xmlDoc.getElementsByTagName("cudnp")[0].childNodes[0].nodeValue);
-			
-			if ($numRC != 1){
-				$ListaHojas = "Referencia Catastral Incorrecta";
-				}
-			else {
-				$ListaHojas = '<table width="100%" cellspacing="0" cellpadding="1" border="1"><tbody>';
-				$ListaHojas = $ListaHojas + '<tr><th colspan="2">Datos Descriptivos del Inmueble</th></tr>';
-				$ListaHojas = $ListaHojas + '<tr><td>Referencia Catastral</td><td>';
-				$ListaHojas = $ListaHojas + xmlDoc.getElementsByTagName("pc1")[0].childNodes[0].nodeValue;
-				$ListaHojas = $ListaHojas + xmlDoc.getElementsByTagName("pc2")[0].childNodes[0].nodeValue;
-				$ListaHojas = $ListaHojas + xmlDoc.getElementsByTagName("car")[0].childNodes[0].nodeValue;
-				$ListaHojas = $ListaHojas + xmlDoc.getElementsByTagName("cc1")[0].childNodes[0].nodeValue;
-				$ListaHojas = $ListaHojas + xmlDoc.getElementsByTagName("cc2")[0].childNodes[0].nodeValue;
-				$ListaHojas = $ListaHojas + '</td></tr><tr><td>Nombre</td><td>';
-				$ListaHojas = $ListaHojas + xmlDoc.getElementsByTagName("npa")[0].childNodes[0].nodeValue;
-				$ListaHojas = $ListaHojas + '</td></tr><tr><td>Localización</td><td>';
-				$ListaHojas = $ListaHojas + xmlDoc.getElementsByTagName("ldt")[0].childNodes[0].nodeValue;
-				$ListaHojas = $ListaHojas + '</td></tr><tr><td>Clase</td><td>';
-				$ListaHojas = $ListaHojas + xmlDoc.getElementsByTagName("cn")[0].childNodes[0].nodeValue;
-				if(xmlDoc.getElementsByTagName("sfc").length > 0) {
-					$ListaHojas = $ListaHojas + '</td></tr><tr><td>Superficie Construida</td><td>';
-					$ListaHojas = $ListaHojas + xmlDoc.getElementsByTagName("sfc")[0].childNodes[0].nodeValue;
-				}
-				$ListaHojas = $ListaHojas + '</td></tr>';
-				$ListaHojas = $ListaHojas + '</tbody></table>';
-
-				if (xmlDoc.getElementsByTagName("cucons").length >0) {
-					$ListaHojas = $ListaHojas + '<table width="100%" cellspacing="0" cellpadding="1" border="1"><tbody>';
-					$ListaHojas = $ListaHojas + '<tr><th colspan="2">Construcción</th></tr>';
-					$ListaHojas = $ListaHojas + '<tr><th>Uso Principal</th><th>Superficie</th></tr>';
-				
-					$numElementos = xmlDoc.getElementsByTagName("cucons")[0].childNodes[0].nodeValue;
-					for ($i = 0 ; $i < $numElementos ; $i++) {
-						$ListaHojas = $ListaHojas + '<tr><td>' + xmlDoc.getElementsByTagName("lcd")[$i].childNodes[0].nodeValue + '</td>';
-						$ListaHojas = $ListaHojas + '<td>' + xmlDoc.getElementsByTagName("stl")[$i].childNodes[0].nodeValue + '</td></tr>';
-					}
-					$ListaHojas = $ListaHojas + '</tbody></table>';
-				}
-
-				$ListaHojas = $ListaHojas + '<table width="100%" cellspacing="0" cellpadding="1" border="1"><tbody>';
-				$ListaHojas = $ListaHojas + '<tr><th colspan="2">Cultivo</th></tr>';
-				$ListaHojas = $ListaHojas + '<tr><th>Uso Principal</th><th>Superficie</th></tr>';
-				
-				$numElementos = xmlDoc.getElementsByTagName("cucul")[0].childNodes[0].nodeValue;
-				for ($i = 0 ; $i < $numElementos ; $i++) {
-					$ListaHojas = $ListaHojas + '<tr><td>' + xmlDoc.getElementsByTagName("dcc")[$i].childNodes[0].nodeValue + '</td>';
-					$ListaHojas = $ListaHojas + '<td>' + xmlDoc.getElementsByTagName("ssp")[$i].childNodes[0].nodeValue + '</td></tr>';
-					}
-				$ListaHojas = $ListaHojas + '</tbody></table>';
-				}
-			document.getElementById("infoapp").innerHTML = $ListaHojas;
-			}
-		}
-	
-	$Provincia = document.forms['form1'].slcProvincias[document.forms['form1'].slcProvincias.selectedIndex].text;
-	$Municipio = document.forms['form1'].slcMunicipios.value;
-	
-	myUrl = 'http://' + 'localhost.8000' + '/ListaRC.php?Provincia=' + $Provincia + '&Municipio=' + $Municipio + '&RC=' + RC;
     
 	xmlHttp.open("GET", myUrl, true); // true for asynchronous 
  	xmlHttp.send(null);
