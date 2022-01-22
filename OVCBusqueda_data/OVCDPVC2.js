@@ -8,69 +8,6 @@ function tieneCaracterRaro(cCadena) {
     return false;
 }
 
-function HabilitarRC(habilitar) {
-    var colorF
-    colorF = ColorFondo(habilitar)
-    document.forms['form1'].txtRC.style.backgroundColor = colorF
-    document.forms['form1'].txtRC.disabled = !(habilitar)
-}
-function HabilitarRCUrbanos(habilitar) {
-    var colorF
-    colorF = ColorFondo(habilitar)
-    document.forms['form1'].txtRC1U.style.backgroundColor = colorF
-    document.forms['form1'].txtRC1U.disabled = !(habilitar)
-    document.forms['form1'].txtRC2U.style.backgroundColor = colorF
-    document.forms['form1'].txtRC2U.disabled = !(habilitar)
-    document.forms['form1'].txtRC3U.style.backgroundColor = colorF
-    document.forms['form1'].txtRC3U.disabled = !(habilitar)
-    document.forms['form1'].txtRC4U.style.backgroundColor = colorF
-    document.forms['form1'].txtRC4U.disabled = !(habilitar)
-}
-function HabilitarRCRusticos(habilitar) {
-    var colorF
-    colorF = ColorFondo(habilitar)
-    document.forms['form1'].txtRC1R.style.backgroundColor = colorF
-    document.forms['form1'].txtRC1R.disabled = !(habilitar)
-    document.forms['form1'].txtRC2R.style.backgroundColor = colorF
-    document.forms['form1'].txtRC2R.disabled = !(habilitar)
-    document.forms['form1'].txtRC3R.style.backgroundColor = colorF
-    document.forms['form1'].txtRC3R.disabled = !(habilitar)
-}
-function HabilitarRCBices(habilitar) {
-    var colorF
-    colorF = ColorFondo(habilitar)
-    document.forms['form1'].txtRC1B.style.backgroundColor = colorF
-    document.forms['form1'].txtRC1B.disabled = !(habilitar)
-    document.forms['form1'].txtRC2B.style.backgroundColor = colorF
-    document.forms['form1'].txtRC2B.disabled = !(habilitar)
-    document.forms['form1'].txtRC3B.style.backgroundColor = colorF
-    document.forms['form1'].txtRC3B.disabled = !(habilitar)
-    document.forms['form1'].txtRC4B.style.backgroundColor = colorF
-    document.forms['form1'].txtRC4B.disabled = !(habilitar)
-}
-function HabilitarRBRC(habilitar) {
-    if (!(habilitar)) {
-        document.forms['form1'].rdb_RCUrbRus[2].checked = habilitar
-        document.forms['form1'].rdb_RCUrbRus[1].checked = habilitar
-        document.forms['form1'].rdb_RCUrbRus[0].checked = habilitar
-    }
-    document.forms['form1'].rdb_RCUrbRus[0].disabled = !(habilitar)
-    document.forms['form1'].rdb_RCUrbRus[1].disabled = !(habilitar)
-    document.forms['form1'].rdb_RCUrbRus[2].disabled = !(habilitar)
-}
-function HabilitarRBLocalizacion(habilitar) {
-    if (!(habilitar)) {
-        //document.forms['form1'].rdb_UrbRus[2].checked=habilitar
-        document.forms['form1'].rdb_UrbRus[1].checked = habilitar
-        document.forms['form1'].rdb_UrbRus[0].checked = habilitar
-       // document.forms['form1'].rdb_UrbRus[2].checked = habilitar
-    }
-    //document.forms['form1'].rbLEspeciales.disabled=!(habilitar)
-    document.forms['form1'].rbLRusticos.disabled = !(habilitar)
-    document.forms['form1'].rbLUrbanos.disabled = !(habilitar)
-   // document.forms['form1'].rbLIdufir.disabled = !(habilitar)
-    
-}
 function HabilitarProvMuni(habilitar) {
     var colorF;
     colorF = ColorFondo(habilitar);
