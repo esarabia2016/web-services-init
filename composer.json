@@ -1,0 +1,19 @@
+{
+    "name": "emili/web-services-init",
+    "type": "project",
+    "require": {
+        "eftec/bladeone": "^4.2",
+        "google/apiclient": "^2.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "Emili\\WebServicesInit\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "esarabia2016",
+            "email": "emilio.sarabia@educa.madrid.org"
+        }
+    ]
+}
